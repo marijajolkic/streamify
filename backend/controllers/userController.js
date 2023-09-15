@@ -196,8 +196,7 @@ const initiatePasswordReset = async (req, res) => {
     });
     console.log(`Email sent: ${JSON.stringify(emailResult)}`); // Debugging line
 
-    res.status(200).json({ message: 'Password reset link sent.' });
-
+    res.status(200).send('Password reset link sent.');
   } catch (error) {
     console.error(`Error: ${error.message}`); // Debugging line
     res.status(500).json({ error: error.message });

@@ -13,6 +13,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HomeComponent } from './home/home.component';
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
+    VideoPlayerComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

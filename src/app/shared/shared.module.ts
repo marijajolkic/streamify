@@ -7,16 +7,24 @@ import { LoginService } from '@shared/services/login.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EmailVerificationComponent } from './components/email-verification/email-verification.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { VideoPlayerComponent } from './components/password-change/video-player/video-player.component';
 
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     EmailVerificationComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    VideoPlayerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [
     ApiUrlService,
@@ -25,6 +33,9 @@ import { PasswordChangeComponent } from './components/password-change/password-c
   ],
   exports: [
     // export components, directives, etc
+    NotFoundComponent,
+    EmailVerificationComponent,
+    PasswordChangeComponent
   ],
 })
 export class SharedModule { }
