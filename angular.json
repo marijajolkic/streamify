@@ -8,7 +8,19 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "architect": {
+          "serve": {
+            "builder": "@angular-devkit/build-angular:dev-server",
+            "options": {
+              "browserTarget": "your-app-name:build",
+              "proxyConfig": "proxy.conf.json"
+            }
+            
+          }
+      
         }
+        
       },
       "root": "",
       "sourceRoot": "src",
@@ -30,6 +42,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +106,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
