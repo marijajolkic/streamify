@@ -1,0 +1,75 @@
+.toolbar {
+    display: flex;
+    align-items: center;
+}
+
+.streamify {
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
+.toggle-group {
+    display: flex;
+    gap: 0.5em;
+    margin-right: 1em;
+}
+
+.toggle-option {
+    cursor: pointer;
+}
+
+.bold-text {
+    font-weight: bold !important;
+}
+
+.category-button {
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+
+
+.spacer {
+    flex: 1;
+}
+
+.user-button {
+    margin-left: 1em;
+}
+
+
+  .letter{
+    font-weight: 100;
+  }
+
+  .search-container {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .search-input {
+    // border: none;
+    // border-bottom: 1px solid rgb(255, 255, 255);
+    // background: transparent;
+    // outline: none;
+    color:white;
+    font-size: 0.8em; /* Increase the font size */
+    height: 1.3em;      /* Increase the height */
+    border: none;     /* Remove the border */
+    border-bottom: 1px solid #ffffff; /* Add a bottom border */
+    margin-left: 60%; /* Add margin to the left */
+    margin-right: 20px; /* Add margin to the right */
+    outline: none;    /* Remove the outline */
+    background: none; /* Remove background to match with mat-toolbar */
+    margin-bottom: 3px;
+  }
+  
+  .search-input::placeholder {
+    color: rgb(255, 255, 255);
+  }
+  mat-toolbar {
+    background-color: black !important;
+    color: white; /* Set the color of the text to white for better visibility */
+  }
+  

@@ -6,6 +6,7 @@
     "paths": {
       "@shared/*": ["app/shared/*"]
     },
+    "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

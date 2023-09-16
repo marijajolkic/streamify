@@ -1,1 +1,39 @@
-<p>nav works!</p>
+<mat-toolbar color="primary" class="toolbar">
+    <span class="streamify">Streamify.</span>
+
+    <div class="toggle-group" *ngIf="isUser">
+        <span class="toggle-option letter" [ngClass]="{'bold-text': selectedOption === 'movie'}" (click)="selectOption('movie')">Movie</span>
+        <span class="toggle-option letter" [ngClass]="{'bold-text': selectedOption === 'tv'}" (click)="selectOption('tv')">TV Show</span>
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="categoryMenu">Categories</button>
+<mat-menu #categoryMenu="matMenu">
+  <mat-form-field class="example-full-width">
+    <mat-label>Categories</mat-label>
+    <mat-select [formControl]="selectedCategories" multiple>
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{ category }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-menu-item (click)="resetCategories()">Reset</button>
+</mat-menu>
+    
+    <div class="search-container">
+        <input class="search-input" placeholder="Search" />
+      </div>
+      
+    
+    
+    <span class="spacer"></span>
+
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" class="user-button">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+</mat-toolbar>
+

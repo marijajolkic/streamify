@@ -16,6 +16,13 @@ import { HomeComponent } from './home/home.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { NavComponent } from './nav/nav.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +41,12 @@ import { NavComponent } from './nav/nav.component';
     MatButtonModule,
     AppRoutingModule,
     SharedModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatFormFieldModule,
 
   ],
   providers: [],
