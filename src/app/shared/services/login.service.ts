@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiUrlService } from '@shared/services/api-url.service';// Import the ApiUrlService
 import { Router } from '@angular/router';
+import * as Cookies from 'js-cookie';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,27 @@ export class LoginService {
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
+  
+  getToken(): string | null {
+    console.log(localStorage.getItem('token'))
+    return localStorage.getItem('token');
+}
+
+
+getUserIDFromToken(): string | null {
+  const token = this.getToken();
+  if (!token) return null;
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    console.log(payload.id)
+    return payload.id; // Adjusted to the correct property name
+    
+  } catch (e) {
+    console.error('Invalid token', e);
+    return null;
+  }
+}
+  
+  
 }

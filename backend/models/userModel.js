@@ -34,6 +34,7 @@ const isUsernameTaken = async (username) => {
 const addUser = async (userData) => {
   try {
     const [result] = await pool.query('INSERT INTO users SET ?', userData);
+    console.log('Insert result:', result); // Add this line to log the result of the query
     return result.insertId;
   } catch (error) {
     throw error;

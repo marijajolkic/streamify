@@ -57,7 +57,7 @@ const addUser = async (req, res) => {
     // Now use the hashed password and other details to create a new user
     const user = await userModel.addUser({ user_name, email, password_hash ,is_verified});
     
-    res.status(201).json({ id: user.id });
+    res.status(201).json({ id: user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -92,12 +92,13 @@ const register = async (req, res) => {
 
     const password_hash = await bcrypt.hash(password, 10);
     const user = await userModel.addUser({ user_name, email, password_hash, is_verified });
-    
+    console.log('User ID after creation:', user);
+
     // Assign a default role to a new user (1 is the role_id for the 'user' role)
     await userModel.assignRoleToUser(user, 1);
     
     const token = jwt.sign({ id: user }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
+    console.log(token)
 
     // Send welcome email using nodemailer
     await transporter.sendMail({
@@ -126,9 +127,13 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const user = await userModel.getUserByEmail(req.body.email);
+    console.log('User:', user);
     if (user && await bcrypt.compare(req.body.password, user.password_hash)) {
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      
+      console.log(user.user_id);
+      const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      const token2 = jwt.sign({ test: "hello world" }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      console.log(token);
+      console.log(token2);
       // Get user roles
       const roles = await userModel.getUserRolesByUserId(user.id);
 

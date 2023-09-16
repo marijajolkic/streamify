@@ -10,7 +10,7 @@ import { PasswordChangeComponent } from './components/password-change/password-c
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { VideoPlayerComponent } from './components/password-change/video-player/video-player.component';
+
 
 
 @NgModule({
@@ -18,7 +18,6 @@ import { VideoPlayerComponent } from './components/password-change/video-player/
     NotFoundComponent,
     EmailVerificationComponent,
     PasswordChangeComponent,
-    VideoPlayerComponent
   ],
   imports: [
     CommonModule,
