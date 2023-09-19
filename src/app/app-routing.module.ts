@@ -7,6 +7,7 @@ import { NotFoundComponent } from '@shared/components/not-found/not-found.compon
 import { EmailVerificationComponent } from '@shared/components/email-verification/email-verification.component';
 import { PasswordChangeComponent } from '@shared/components/password-change/password-change.component';
 import { AuthGuard } from '@shared/guards/auth.guard';
+import { EditContentComponent } from './admin-pages/edit-content/edit-content.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path: 'email-verification', component: EmailVerificationComponent },
   { path: 'password-change', component: PasswordChangeComponent },
   // add more routes as needed
-
+  {
+    path: 'edit-content',
+    component: EditContentComponent,
+  },
   
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' },

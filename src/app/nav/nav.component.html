@@ -41,7 +41,7 @@
               (click)="selectOption('general')">
               <i class='bx bxs-cog icon'></i><span class="menu-text">General</span>
         </span>
-        <span class="toggle-option letter" 
+        <span class="toggle-option letter" routerLink="/edit-content"
               [ngClass]="{'bold-text': selectedOption === 'edit-contents'}" 
               (click)="selectOption('edit-contents')">
               <i class='bx bxs-edit icon'></i><span class="menu-text">Edit Contents</span>

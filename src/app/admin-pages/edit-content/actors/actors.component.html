@@ -1,0 +1,30 @@
+<!-- actors.component.html -->
+<form [formGroup]="actorForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Actor Name</mat-label>
+      <input matInput formControlName="actorName">
+    </mat-form-field>
+    <button mat-raised-button type="submit"> {{ editingActorId !== null ? 'Edit' : 'Add' }}</button>
+  </form>
+  
+  <mat-table [dataSource]="dataSource">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.actor_name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="onEdit(element.actor_id, element.actor_name)">Edit</button>
+        <button mat-button (click)="onDelete(element.actor_id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  
