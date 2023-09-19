@@ -7,7 +7,11 @@ import { LoginService } from '@shared/services/login.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private loginService: LoginService) { }
+
+  constructor(private loginService: LoginService) {
+ 
+    // ... (set up the other forms similarly, with additional fields as needed)
+  }
   logout(): void {
     this.loginService.logout();
   }

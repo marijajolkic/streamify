@@ -1,0 +1,67 @@
+<form [formGroup]="tvShowForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>TV Show Name</mat-label>
+    <input matInput formControlName="tv_show_name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Number of Seasons</mat-label>
+    <input matInput formControlName="number_of_seasons" type="number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Release Date</mat-label>
+    <input matInput formControlName="release_date" type="date">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Actors</mat-label>
+    <mat-select formControlName="actors" multiple>
+      <mat-option *ngFor="let actor of actors" [value]="actor.id">{{ actor.actor_name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Categories</mat-label>
+    <mat-select formControlName="categories" multiple>
+      <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.category_name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">{{ isEditing ? 'Edit' : 'Add' }}</button>
+</form>
+
+<mat-table [dataSource]="dataSource">
+  <!-- Define columns here -->
+
+  <!-- TV Show Name Column -->
+  <ng-container matColumnDef="tv_show_name">
+    <mat-header-cell *matHeaderCellDef> TV Show Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.tv_show_name}} </mat-cell>
+  </ng-container>
+
+  <!-- Number of Seasons Column -->
+  <ng-container matColumnDef="number_of_seasons">
+    <mat-header-cell *matHeaderCellDef> Number of Seasons </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.number_of_seasons}} </mat-cell>
+  </ng-container>
+
+  <!-- Release Date Column -->
+  <ng-container matColumnDef="release_date">
+    <mat-header-cell *matHeaderCellDef> Release Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.release_date | date}} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element"> 
+      <button mat-button (click)="onEdit(element)">Edit</button>
+      <button mat-button (click)="onDelete(element.id)">Delete</button> <!-- ensure the property name for ID is correct -->
+    </mat-cell>
+  </ng-container>
+
+  <!-- Header and Row Definitions -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
